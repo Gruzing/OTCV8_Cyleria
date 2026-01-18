@@ -1,7 +1,7 @@
 -- Walerian System v1.0
 -- === KONFIGURACJA HUD ===
 local hudConfig = {
-    pos = {x = 50, y = 200}, 
+    pos = {x = 60, y = 200}, 
     textColor = "#FFFFFF",
     doneColor = "#00FF00",
     title = "[Walerian Task]"
@@ -75,6 +75,14 @@ local function updateHud()
         label:setColor(hudConfig.textColor)
     end
 end
+function checkKill()
+  if storage.Walerian.Killed >= storage.Walerian.ToKill then
+    CaveInfo("[Walerian Check] Zabito wymagana ilosc. Wracam.")
+    CaveBot.gotoLabel("Wyjscie")
+    else
+      CaveBot.gotoLabel("startHunt")
+  end
+end
 
 macro(200, function() updateHud() end)
 
@@ -108,8 +116,8 @@ onTalk(function(name, level, mode, text, channelId, pos)
 
             -- Sprawdzenie powrotu
             if storage.Walerian.Killed >= storage.Walerian.ToKill then
-                print("[Walerian] Limit osiagniety ("..k.."/"..t.."). Wracam (gotoLabel: Wyjscie).")
-                CaveBot.gotoLabel("Wyjscie")
+                CaveInfo("[Walerian] Limit osiagniety ("..k.."/"..t..").")
+                --CaveBot.gotoLabel("Wyjscie")
             end
             return
         end
@@ -127,7 +135,7 @@ onTalk(function(name, level, mode, text, channelId, pos)
             Killed = 0
         }
         
-        print("[Walerian] Start misji nr " .. mID .. ": " .. mName)
+        CaveInfo("[Walerian] Start misji nr " .. mID .. ": " .. mName)
         
         local cfgName = "Walerian_" .. mID
         if CaveBot.setCurrentProfile(cfgName) then
