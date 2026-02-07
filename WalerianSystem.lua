@@ -138,7 +138,15 @@ onTalk(function(name, level, mode, text, channelId, pos)
         print("[Walerian] Start misji nr " .. mID .. ": " .. mName)
         
         local cfgName = "Walerian_" .. mID
-        if CaveBot.setCurrentProfile(cfgName) then
+        storage._configs.cavebot_configs.selected = cfgName
+        storage._configs.cavebot_configs.enabled = true
+        CaveBot setOff()
+        schedule(1500, function()
+            CaveBot.setOn()
+            CaveBot.delay(2000)
+         end)
+            
+        if CaveBot.getCurrentProfile(cfgName) then
             print("[Walerian] Zaladowano config: " .. cfgName)
         else
             warn("[Walerian] Brak configu: " .. cfgName)
