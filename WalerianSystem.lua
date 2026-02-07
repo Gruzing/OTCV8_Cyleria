@@ -77,7 +77,7 @@ local function updateHud()
 end
 function checkKill()
   if storage.Walerian.Killed >= storage.Walerian.ToKill then
-    CaveInfo("[Walerian Check] Zabito wymagana ilosc. Wracam.")
+    print("[Walerian Check] Zabito wymagana ilosc. Wracam.")
     CaveBot.gotoLabel("Wyjscie")
     else
       CaveBot.gotoLabel("startHunt")
@@ -116,7 +116,7 @@ onTalk(function(name, level, mode, text, channelId, pos)
 
             -- Sprawdzenie powrotu
             if storage.Walerian.Killed >= storage.Walerian.ToKill then
-                CaveInfo("[Walerian] Limit osiagniety ("..k.."/"..t..").")
+                print("[Walerian] Limit osiagniety ("..k.."/"..t..").")
                 --CaveBot.gotoLabel("Wyjscie")
             end
             return
@@ -135,7 +135,7 @@ onTalk(function(name, level, mode, text, channelId, pos)
             Killed = 0
         }
         
-        CaveInfo("[Walerian] Start misji nr " .. mID .. ": " .. mName)
+        print("[Walerian] Start misji nr " .. mID .. ": " .. mName)
         
         local cfgName = "Walerian_" .. mID
         if CaveBot.setCurrentProfile(cfgName) then
