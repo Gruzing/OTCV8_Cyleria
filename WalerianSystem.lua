@@ -292,5 +292,5 @@ Logika: Zachowałem całą logikę onTalk z drugiego skryptu:
 Automatyczne wykrywanie postępu (Channel 13).
 Automatyczna zmiana profilu CaveBota po wzięciu misji.
 Automatyczne oddawanie misji ("hi", "misja") po zakończeniu.
-Optymalizacja: Zamiast listy potworów (ScrollablePanel z pierwszego skryptu), wstawiłem statyczne etykiety (Misja, Cel, Ilość, %), ponieważ system Waleriana obsługuje jedną misję na raz, co wygląda czytelniej.
+Optymalizacja: statyczne etykiety (Misja, Cel, Ilość, %).
 ]]-- 
