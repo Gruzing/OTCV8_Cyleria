@@ -117,7 +117,7 @@ goto:1877,554,6
 goto:1871,553,6
 delay:500
 function:[[
-checkKill()
+checkReturnLogic()
 
 return true
 
